@@ -1,0 +1,19 @@
+version: '3'
+
+volumes:
+     pgdata:
+
+networks:
+  sb_net:
+    driver: bridge
+
+services:
+  gwa_common_consumer:
+    container_name: gwa-common-consumer
+    build: .
+    expose:
+      - 8000
+    ports:
+      - 8080:8080
+    env_file:
+      - environments/hml.env
